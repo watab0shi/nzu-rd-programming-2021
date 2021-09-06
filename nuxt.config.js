@@ -1,30 +1,16 @@
-export default {
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+import theme from '@nuxt/content-theme-docs'
 
-  // Global App headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'My Nuxt Application',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+export default theme({
+  i18n: {
+    locales: () => [
       {
-        hid: 'description',
-        name: 'description',
-        content: 'This is an awesome description of my Nuxt app',
-      },
+        code: 'ja',
+        iso: 'ja_JP',
+        file: 'ja-JP.js',
+        name: '日本語'
+      }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-  },
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+    defaultLocale: 'ja'
+  }
+})
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: []
-};

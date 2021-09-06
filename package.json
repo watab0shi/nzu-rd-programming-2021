@@ -1,8 +1,8 @@
 {
-  "name": "nuxtjs",
+  "name": "nzu-rd-programming-2021",
   "version": "1.0.0",
-  "description": "My astonishing Nuxt App",
-  "author": "msweeneydev",
+  "description": "NZU RD Programming 2021",
+  "author": "watab0shi",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -10,6 +10,7 @@
     "start": "nuxt start"
   },
   "dependencies": {
+    "@nuxt/content-theme-docs": "^0.9",
     "core-js": "^3.15.0",
     "nuxt": "^2.15.7"
   },
