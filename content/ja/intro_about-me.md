@@ -54,7 +54,7 @@ SKE48 と MIGMA SHELTER が好きです。
 おすすめのカフェとかアイスとかあったらおしえてください...!
 
 プログラミングは頭を使うので、糖分補給がだいじです。  
-この授業に限っては授業中に<strong>おやつたべてもOK</strong>です！（ただし<strong>PCにこぼさないで！</strong>）
+この授業に限っては授業中に<strong>おやつたべてもOK</strong>です！（ただし<strong>PCにはこぼさないで！</strong>）
 
 
 ### 作品
@@ -122,3 +122,11 @@ SKE48 と MIGMA SHELTER が好きです。
 [シヤチハタ 「ShachiPon!」](https://www.shachihata.co.jp/pressrelease/2017/shachipon.php)
 
 <img src="/resource/image/about-me_pct-shachipon.jpg" width="1600" height="1081" alt="シヤチハタ 「ShachiPon!"/>
+
+
+## アンケート
+
+みなさんが興味のある分野についても知りたいです！  
+偏りがあれば授業内容をちょっと寄せていこうと思っています！  
+TeamsでGoogleフォームのURLを送るので各自回答をおねがいします！  
+なにとぞ！🙇‍♂️

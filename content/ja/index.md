@@ -18,6 +18,10 @@ category: 'はじめに'
 
 <nuxt-link to="/js-basic_about">JavaScript基礎 - JavaScriptについて</nuxt-link>を参照
 
+## p5.jsとは
+
+<nuxt-link to="/p5js_intro">p5.js - p5.jsについて</nuxt-link>を参照
+
 ## この資料の見方
 
 それぞれ以下のように表示されます。
@@ -67,7 +71,8 @@ function draw() {
 
 <alert type="success">
 
-みなさんへの作業指示は緑色で表示されます。  
+**みなさんへの作業指示は緑色で表示されます。**  
+ほとんどが通常課題の指示です。  
 例）○○○を使ったコードを書いてみましょう！
 
 </alert>

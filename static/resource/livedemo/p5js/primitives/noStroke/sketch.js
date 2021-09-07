@@ -4,6 +4,8 @@ function setup() {
 
 function draw() {
   background(220);
+
+  // noStroke(引数なし)
   noStroke();// 線を非表示
   rect(150, 150, 100, 100);
 }

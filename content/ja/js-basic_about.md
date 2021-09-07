@@ -120,6 +120,8 @@ JavaScriptと名前のよく似た「Java」というプログラミング言語
 
 ## JavaScriptの種類
 
+<img src="/resource/image/js-basic_js-es-ts.png" alt="JavaScriptの種類"/>
+
 JavaScriptについて検索すると「<strong>ECMAScript（ES）</strong>」や「<strong>TypeScript（TS）</strong>」といったワードを含む記事がヒットします。
 
 <strong>「ECMAScript」とはJavaScriptの文法を定める仕様の名称</strong>で、様々なバージョンが存在します。  

@@ -41,6 +41,8 @@ Processingでは**プログラムのことをスケッチ（`sketch`）と呼び
 
 <img src="/resource/image/p5js_intro_processing.png" alt="Processing"/>
 
+`Processing` は英語圏のスラング（[Leet](https://ja.wikipedia.org/wiki/Leet)といいます）で `proce55ing` とも書かれていて、それを略して `p5` （ぴーふぁいぶ）と呼ばれることもあります。
+
 ## p5.js
 
 <img src="/resource/image/common_logo-p5js.svg" width="128" height="58" alt="p5.js"/>
