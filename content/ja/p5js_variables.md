@@ -57,37 +57,73 @@ circle(x, 200, 100)// 変数 x を circle 関数の引数として使う
 
 <live-demo src="/resource/livedemo/p5js/variables/circle/"></live-demo>
 
-
 ## 変数の更新
+
+四則演算（加減乗除）については、  
+<nuxt-link to="/js-basic_variables#数値number">JavaScript基礎 - データ型（プリミティブ型）- 数値（Number）</nuxt-link>を参照
 
 ### 加算
 
 ```javascript
+// 書き方
 変数名 = 変数名 + 1;// 1 を足す
-変数名 += 1;// 1 を足す
+変数名 += 1;// ↑の省略記法
+
+// サンプル
+x = x + 1;// x に 1 を足して代入する
+x += 1;// ↑の省略記法
 ```
 
 #### インクリメント
-変数に `1` を足すときのみ使える省略記法です。
+
+変数名の直後に `++` と書くと、`変数名 = 変数名 + 1;` や `変数名 += 1;` と同じ意味になります。
+
+<alert>
+
+**変数に `1` を足す**ときのみ使える省略記法です。
+
+</alert>
 
 ```javascript
+// 書き方
 変数名++;// 1 を足す
+
+// サンプル
+x++;// x に 1を足す
 ```
 
 ### 減算
 
 ```javascript
+// 書き方
 変数名 = 変数名 - 1;// 1 を引く
-変数名 -= 1;// 1 を引く
+変数名 -= 1;// ↑の省略記法
+
+// サンプル
+x = x - 1;// x に 1 を足して代入する
+x -= 1;// ↑の省略記法
 ```
 
 #### デクリメント
 
-変数から `1` を引くときのみ使える省略記法です。
+変数名の直後に `--` と書くと、`変数名 = 変数名 - 1;` や `変数名 -= 1;` と同じ意味になります。
+
+<alert>
+
+**変数から `1` を引く**ときのみ使える省略記法です。
+
+</alert>
 
 ```javascript
+// 書き方
 変数名--;// 1 を引く
+
+// サンプル
+x--;// x に 1を引く
 ```
+
+
+<img src="/resource/image/p5js_variables.png" alt="変数"/>
 
 ### 変数の更新を書く場所
 
@@ -155,7 +191,7 @@ function draw() {
 
 <alert type="success">
 
-新たに変数 `red` を定義して `0` を代入し、`draw` 関数の中で `0.1` ずつ足して `fill` に渡してみましょう！  
+**新たに変数 `red` を定義して `0` を代入し、`draw` 関数の中で `0.1` ずつ足して `fill` に渡してみましょう！**  
 `0.1` を `1` や `0.01` に変更してみたり、初期値を `0` から `255` にしてみたり、プラスをマイナスに変えてみたりして、動きがどう変化するかみてみましょう！  
 できたら、スケッチ名： `variables-animation-fill` で保存して、コレクションに追加しましょう！
 
@@ -164,3 +200,82 @@ function draw() {
 <live-demo src="/resource/livedemo/p5js/variables/animation-fill/"></live-demo>
 
 ↑動いていなかったら、リロード（再読み込み）してみてください。
+
+
+## システム変数
+
+p5.js には、ライブラリ側ですでに用意されている**システム変数**というものがあります。  
+これらはライブラリ側で定義＆更新されるので、`setup` `draw` の中で自由に使うことができます。
+
+<alert type="warning">
+
+**システム変数は**自分で定義する変数と違って、**代入や更新ができません！**
+
+</alert>
+
+|変数名|説明|
+|:--|:--|
+|`width`|`createCanvas` で指定したキャンバスの幅|
+|`height`|`createCanvas` で指定したキャンバスの高さ|
+|`mouseX`|キャンバス上のマウスのX座標（あとの章でやります）|
+|`mouseY`|キャンバス上のマウスのY座標（あとの章でやります）|
+|...|...|
+
+
+### キャンバスサイズに依存する書き方
+
+数値をキャンバスの中心座標として直接引数に渡していると、キャンバスサイズを変えたときに数値を再計算する必要がでてきます。
+
+```javascript[sketch.js]
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+
+  // 400 x 400 の中心は (200, 200)
+  // キャンバスピッタリの直径は 400
+  circle(200, 200, 400);
+}
+```
+
+`400 x 400`のときはいいけど、
+<live-demo src="/resource/livedemo/p5js/variables/system-sample-1/"></live-demo>
+
+サイズを変えると `(200, 200)` が中心じゃなくなっちゃう。
+<live-demo src="/resource/livedemo/p5js/variables/system-sample-2/"></live-demo>
+
+キャンバスの中心座標と直径をシステム変数 `width` `height` を使って書くと、`createCanvas` のサイズ指定を変更してもコードを修正する必要がなくなります。
+
+```javascript[sketch.js]
+function setup() {
+  createCanvas(500, 500);
+}
+
+function draw() {
+  background(220);
+
+  // 常にキャンバスの中心＆キャンバスの横幅いっぱいの直径
+  circle(width / 2, height / 2, width);
+}
+```
+
+`200 x 200`
+<live-demo src="/resource/livedemo/p5js/variables/system-sample-3/"></live-demo>
+
+`500 x 500`
+<live-demo src="/resource/livedemo/p5js/variables/system-sample-4/"></live-demo>
+
+<alert type="success">
+
+**`width` `height` を使って、キャンバスサイズを変更しても図形が常に同じ位置になるスケッチを書いてみましょう！**  
+できたら、スケッチ名： `variables-system` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+`200 x 200`
+<live-demo src="/resource/livedemo/p5js/variables/system-1/"></live-demo>
+
+`500 x 500`
+<live-demo src="/resource/livedemo/p5js/variables/system-2/"></live-demo>

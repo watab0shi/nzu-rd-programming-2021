@@ -92,6 +92,8 @@ bit が増えるごとに桁が増えるので、表現できる組み合わせ�
 
 ## カラーパレット生成ツール
 
+[Colorbase](https://colorbase.app/)
+
 [Coolors - The super fast color schemes generator!](https://coolors.co/)
 
 [Color palette generator | Canva Colors](https://www.canva.com/colors/color-palette-generator/)
