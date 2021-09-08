@@ -7,6 +7,8 @@ function setup() {
 }
 
 function draw() {
+  diameter += 0.1;
+
   background(220);
   noStroke();
   fill(0, 205, 129);

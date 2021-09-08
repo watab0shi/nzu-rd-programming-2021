@@ -15,20 +15,41 @@ category: p5.js
 ```javascript
 // 書き方
 if (true または false) {
-  // なにか処理
+  // 処理
 }
 
-// サンプル
-if (x < 100) {
-  // なにか処理
+// サンプル１（真偽値）
+if (true) {
+  // () の中が true のときだけこの中が処理される
+}
+
+// サンプル２（条件式）
+if (x < 100) {// 実行時に x < 100 が評価された結果 true か false になります
+  // x の値が 100 より小さいときだけこの中が処理される
 }
 ```
 
 ### Boolean
 
-`true` か `false` のどちらかしか状態を持たない真偽値のことを <strong>Boolean</strong> といいます。  
+`true` か `false` のどちらかしか状態を持たない**真偽値**のことを **Boolean** といいます。  
 if文の `()` の中に `true` が入ると `{}` の中の処理が呼ばれ、`false` が入るとスキップされます。  
-条件式を書くことによって動的に`Boolean`を返すことができます。
+条件式を書くことによってプログラム実行時に `Boolean` を返すことができます。
+
+ゲームなどで、あるイベントの条件を満たした時に「フラグが立った」という言い方をよくしますが、**「フラグ」は Boolean のこと**です。
+
+```javascript
+let flag1 = true;
+let flag2 = false;
+let flag3 = 10 < 100;// true
+let flag4 = 10 > 100;// false
+
+let x = 100;
+let isLeft = x < 200;// x が 200 より小さいとき true それ以外は false
+let isRight = x > 200;// x が 200 より大きいとき true それ以外は false
+let isCenter = x === 200;// x が 200 のとき true それ以外は false
+
+let isCenter = (x === 200);// 条件式を()で括るとコードが見やすくなります（意味は変わりません）
+```
 
 ### 条件式
 

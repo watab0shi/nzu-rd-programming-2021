@@ -40,7 +40,8 @@ Twitter: [@watabo_shi](https://twitter.com/watabo_shi)
 
 洋画メインでアクション系とホラー系をよく観ます。  
 バッドエンドな映画が好きです。  
-最近はコロナ禍でなかなか映画館にいけず、、
+おすすめ映画あったら教えてください！  
+（最近はコロナ禍でなかなか映画館にいけず、、😢）
 
 #### 💃　アイドル
 
@@ -78,7 +79,9 @@ SKE48 と MIGMA SHELTER が好きです。
 めずらしくセンサーを使わない作品。言葉を打ち込むと上から落ちてきて文字がバラバラになり、言葉の意味が魂のように抜けていく。  
 言葉と文字の間にある「認識の境界」にフォーカスした作品。
 
-<img src="/resource/image/about-me_pct-kotodama.jpg" alt="シヤチハタ 「ShachiPon!"/>
+<img src="/resource/image/about-me_pct-kotodama.jpg" alt="ことだま"/>
+
+<youtube-iframe src="https://www.youtube.com/embed/Kijot2JQsLE?rel=0"></youtube-iframe>
 
 #### 修了制作 「on your palm」
 

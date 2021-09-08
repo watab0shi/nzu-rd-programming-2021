@@ -9,20 +9,27 @@ category: p5.js
 **変数と言う名前のついた箱に値を格納する**ことで、値の管理や計算、時間を伴う値の変化が簡単になります。
 
 ```javascript
-// 書き方
+// 書き方１
 let 変数名;// 変数定義
 変数名 = 値;// 代入
+
+// 書き方２（書き方１と同じ意味）
 let 変数名 = 値;// 変数定義 & 代入
 
-// サンプル
-let num;// 変数定義
-num = 123;// 代入
-let num = 123;// 変数定義 & 代入
+// サンプル１
+let x;// 変数 x を定義
+x = 123;// x に 123 を代入
+
+// サンプル２（サンプル１と同じ意味）
+let x = 123;// 変数定義 & 代入
+
+// サンプル３
+circle(x, 200, 100)// 変数 x を circle 関数の引数として使う
 ```
 
 <alert type="warning">
 
-変数に代入をせず定義のみ行なった場合、その時点では変数の中身が未定義（`undefined`）になり、バグの原因になったりします。  
+**変数に代入をせず定義のみ行なうと**、その時点では変数の中身が未定義（`undefined`）になり、**バグの原因になったりします。**  
 **変数定義と同時に代入できるときはしましょう。**
 
 </alert>
@@ -31,35 +38,24 @@ let num = 123;// 変数定義 & 代入
 
 <alert type="success">
 
-スケッチを新規作成し、以下のコードをコピペしましょう！  
-色や円の大きさは自由に変えてください。
+スケッチを新規作成し、`setup` 関数より上の行に**変数 `x` `y` を定義**して、それぞれに **`200` を代入**しましょう！
 
 </alert>
-
-```javascript[sketch.js]
-let x = 200;
-let y = 200;
-
-function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-  noStroke();
-  fill(0, 205, 129);
-  circle(x, y, 100);
-}
-```
-
-<live-demo src="/resource/livedemo/p5js/variables/circle/"></live-demo>
 
 <alert type="success">
 
-新たに `diameter`（直径） という変数を作って `100` を代入し、`circle` に渡している部分を変数で置き換えましょう！  
-できたら、スケッチ名： `variables` で保存して、コレクションに追加しましょう！
+変数 `x` `y` を `circle` 関数の **第一引数（X座標）** と **第二引数（Y座標）** に渡してみましょう！（直径は適当でOK）
 
 </alert>
+
+<alert type="success">
+
+新たに `diameter`（意味：直径） という変数を作って `150` を代入し `circle` 関数の**第三引数（直径）** に渡してみましょう！  
+できたら、スケッチ名： `variables-circle` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/variables/circle/"></live-demo>
 
 
 ## 変数の更新
@@ -93,37 +89,78 @@ function draw() {
 変数名--;// 1 を引く
 ```
 
-## アニメーション
+### 変数の更新を書く場所
 
-`draw` 関数内で変数を更新することで、アニメーションさせることができます。
+**変数の更新は、`draw` 関数の中の最初にまとめて行いましょう！**  
+変数の更新とグラフィックの処理をそれぞれ分けて書いておくと、処理が増えたときにコードが見やすくなります！✨
 
-<!-- ```javascript[sketch.js]
+```javascript[sketch.js]
 let x = 200;
-let y = 200;
 
 function setup() {
   createCanvas(400, 400);
 }
 
 function draw() {
-  x += 0.2;// x を 0.2px ずつ足す
+  // ↓ ここから変数更新 ↓
+  x += 0.1;
+  // ↑ ここまで変数更新 ↑
 
+  // ↓ここからグラフィック描画 ↓
   background(220);
   noStroke();
   fill(0, 205, 129);
-  circle(x, y, 100);
+  circle(x, 200, 150);
+  // ↑ ここまでグラフィック描画 ↑
 }
-``` -->
+```
+
+## アニメーション
+
+`draw` 関数内で変数を更新することで、アニメーションさせることができます。
+
+### 直径をアニメーション
+
+<alert type="success">
+
+**`diameter` の値を `draw` 関数の中で `0.1` ずつ足してみましょう！**  
+`0.1` を `1` や `0.01` に変更してみたり、プラスをマイナスに変えてみたりして、動きがどう変化するかみてみましょう！  
+直径がマイナスになると...？？🤔  
+できたら、スケッチ名： `variables-animation-diameter` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/variables/animation-diameter/"></live-demo>
+
+↑動いていなかったら、リロード（再読み込み）してみてください。
+
+### 座標をアニメーション
 
 <alert type="success">
 
 **`x` の値を `draw` 関数の中で `0.1` ずつ足してみましょう！**  
 `0.1` を `1` や `0.01` に変更してみたり、プラスをマイナスに変えてみたりして、動きがどう変化するかみてみましょう！  
-できたら、スケッチ名： `variables-animation` で保存して、コレクションに追加しましょう！
+できたら、スケッチ名： `variables-animation-x` で保存して、コレクションに追加しましょう！
 
 </alert>
 
-<live-demo src="/resource/livedemo/p5js/variables/animation/"></live-demo>
+<live-demo src="/resource/livedemo/p5js/variables/animation-x/"></live-demo>
+
+↑動いていなかったら、リロード（再読み込み）してみてください。
 
 アニメーションするようにはなりましたが、**このままだと永遠に右に進んで戻ってこない**ので、
 次の頁では画面外に出たら反対側から戻ってくる条件分岐の処理を追加します。
+
+### 色をアニメーション
+
+<alert type="success">
+
+新たに変数 `red` を定義して `0` を代入し、`draw` 関数の中で `0.1` ずつ足して `fill` に渡してみましょう！  
+`0.1` を `1` や `0.01` に変更してみたり、初期値を `0` から `255` にしてみたり、プラスをマイナスに変えてみたりして、動きがどう変化するかみてみましょう！  
+できたら、スケッチ名： `variables-animation-fill` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/variables/animation-fill/"></live-demo>
+
+↑動いていなかったら、リロード（再読み込み）してみてください。

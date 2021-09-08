@@ -8,7 +8,7 @@ category: p5.js
 ## 座標系
 
 プログラムでグラフィックを描画するにあたって、まず画面の座標系を把握しておく必要があります。
-例えば、点をひとつ描画するにしてもどこのピクセルに点を打つのかを正確に数字で示さないといけません。
+例えば、点をひとつ描画するにしても**どこのピクセルに点を打つのか**を**正確な数字で**示さないといけません。
 
 <img src="/resource/image/p5js_primitives.png"/>
 
@@ -75,6 +75,17 @@ function draw() {
 ```
 
 <live-demo src="/resource/livedemo/p5js/primitives/strokeWeight/"></live-demo>
+
+引数には、数字だけでなく四則演算の計算式も入れることができます！  
+**面倒な計算はコンピューターに任せちゃいましょう！**
+
+<nuxt-link to="/js-basic_variables#数値number">JavaScript基礎 - データ型（プリミティブ型）- 数値（Number）</nuxt-link>を参照
+
+```javascript
+// (200, 200) を基準として 100px ずつ右下に移動した座標
+point(200 + 100, 200 + 100);
+```
+
 
 <alert type="success">
 
@@ -397,7 +408,7 @@ function draw() {
 
 </alert>
 
-<live-demo src="/resource/livedemo/p5js/primitives/primitives-illust-icecream/"></live-demo>
+<live-demo src="/resource/livedemo/p5js/primitives/illust-icecream/"></live-demo>
 
 
 ## エラーの読み方

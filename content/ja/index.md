@@ -12,15 +12,7 @@ category: 'はじめに'
   <img src="/resource/image/common_logo-p5js.svg" width="128" height="58" alt="p5.jsロゴ"/>
 </div>
 
-<strong>JavaScript</strong>（じゃばすくりぷと）（略称：JS じぇーえす）の基礎を学びながら、そのライブラリである<strong>p5.js</strong>（ぴーふぁいぶじぇーえす）を使用して<strong>ジェネラティブアート / インタラクティブアートの制作</strong>を行います。
-
-## Javascriptとは
-
-<nuxt-link to="/js-basic_about">JavaScript基礎 - JavaScriptについて</nuxt-link>を参照
-
-## p5.jsとは
-
-<nuxt-link to="/p5js_intro">p5.js - p5.jsについて</nuxt-link>を参照
+Webブラウザ上で動作するプログラミング言語である **JavaScript** の構文（書き方）やロジックの組み立て方を学びながら、そのライブラリである **p5.js** を使用して**グラフィックスプログラミング**の基礎を並行して学び、**ジェネラティブアート／インタラクティブアート**の制作を行います。
 
 ## この資料の見方
 
@@ -72,7 +64,7 @@ function draw() {
 <alert type="success">
 
 **みなさんへの作業指示は緑色で表示されます。**  
-ほとんどが通常課題の指示です。  
+ほとんどが授業課題の指示です。  
 例）○○○を使ったコードを書いてみましょう！
 
 </alert>
