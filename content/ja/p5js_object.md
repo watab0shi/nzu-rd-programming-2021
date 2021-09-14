@@ -1,7 +1,7 @@
 ---
 title: オブジェクト
 description: ''
-position: 6.10
+position: 6.11
 category: p5.js
 ---
 

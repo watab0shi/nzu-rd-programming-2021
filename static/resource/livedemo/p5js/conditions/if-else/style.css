@@ -5,3 +5,10 @@ html, body {
 canvas {
   display: block;
 }
+.btn-reload {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 24px;
+}
+

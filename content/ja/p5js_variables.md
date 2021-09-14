@@ -57,6 +57,99 @@ circle(x, 200, 100)// 変数 x を circle 関数の引数として使う
 
 <live-demo src="/resource/livedemo/p5js/variables/circle/"></live-demo>
 
+## 何度も使う値を変数で置き換える
+
+キャンバスの中心座標など、スケッチ内で何度も使う値を変数に格納しておくことで、変数に代入する値を変えるだけで影響する部分に変更をまとめて反映させることができます。
+
+<alert type="success">
+
+[p5js_primitives#triangle関数](/p5js_primitives#triangle関数) で作成した **`triangle-quarter` を複製して、中心座標を変数に置き換え、代入する座標を変えてみましょう！**
+
+できたら、スケッチ名： `variables-triangle-quarter` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/variables/triangle-quarter/"></live-demo>
+
+## システム変数
+
+p5.js には、ライブラリ側ですでに用意されている**システム変数**というものがあります。  
+これらはライブラリ側で定義＆更新されるので、`setup` `draw` の中で自由に使うことができます。
+
+<alert type="warning">
+
+**システム変数は**自分で定義する変数と違って、**代入や更新ができません！**
+
+</alert>
+
+|変数名|説明|
+|:--|:--|
+|`width`|`createCanvas` で指定したキャンバスの幅|
+|`height`|`createCanvas` で指定したキャンバスの高さ|
+|`mouseX`|キャンバス上のマウスのX座標（あとの章でやります）|
+|`mouseY`|キャンバス上のマウスのY座標（あとの章でやります）|
+|...|...|
+
+
+### キャンバスサイズに依存する書き方
+
+数値をキャンバスの中心座標として直接引数に渡していると、キャンバスサイズを変えたときに数値を再計算する必要がでてきます。
+
+```javascript[sketch.js]
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+
+  // 400 x 400 の中心は (200, 200)
+  // キャンバスピッタリの直径は 400
+  circle(200, 200, 400);
+}
+```
+
+`400 x 400`のときはいいけど、
+<live-demo src="/resource/livedemo/p5js/variables/system-sample-1/"></live-demo>
+
+サイズを変えると `(200, 200)` が中心じゃなくなっちゃう。
+<live-demo src="/resource/livedemo/p5js/variables/system-sample-2/"></live-demo>
+
+キャンバスの中心座標と直径をシステム変数 `width` `height` を使って書くと、`createCanvas` のサイズ指定を変更してもコードを修正する必要がなくなります。
+
+```javascript[sketch.js]
+function setup() {
+  createCanvas(500, 500);
+}
+
+function draw() {
+  background(220);
+
+  // 常にキャンバスの中心＆キャンバスの横幅いっぱいの直径
+  circle(width / 2, height / 2, width);
+}
+```
+
+`200 x 200`
+<live-demo src="/resource/livedemo/p5js/variables/system-sample-3/"></live-demo>
+
+`500 x 500`
+<live-demo src="/resource/livedemo/p5js/variables/system-sample-4/"></live-demo>
+
+<alert type="success">
+
+**`width` `height` を使って、キャンバスサイズを変更しても図形が常に同じ位置になるスケッチを書いてみましょう！**  
+できたら、スケッチ名： `variables-system` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+`200 x 200`
+<live-demo src="/resource/livedemo/p5js/variables/system-1/"></live-demo>
+
+`500 x 500`
+<live-demo src="/resource/livedemo/p5js/variables/system-2/"></live-demo>
+
+
 ## 変数の更新
 
 四則演算（加減乗除）については、  
@@ -151,131 +244,3 @@ function draw() {
 }
 ```
 
-## アニメーション
-
-`draw` 関数内で変数を更新することで、アニメーションさせることができます。
-
-### 直径をアニメーション
-
-<alert type="success">
-
-**`diameter` の値を `draw` 関数の中で `0.1` ずつ足してみましょう！**  
-`0.1` を `1` や `0.01` に変更してみたり、プラスをマイナスに変えてみたりして、動きがどう変化するかみてみましょう！  
-直径がマイナスになると...？？🤔  
-できたら、スケッチ名： `variables-animation-diameter` で保存して、コレクションに追加しましょう！
-
-</alert>
-
-<live-demo src="/resource/livedemo/p5js/variables/animation-diameter/"></live-demo>
-
-↑動いていなかったら、リロード（再読み込み）してみてください。
-
-### 座標をアニメーション
-
-<alert type="success">
-
-**`x` の値を `draw` 関数の中で `0.1` ずつ足してみましょう！**  
-`0.1` を `1` や `0.01` に変更してみたり、プラスをマイナスに変えてみたりして、動きがどう変化するかみてみましょう！  
-できたら、スケッチ名： `variables-animation-x` で保存して、コレクションに追加しましょう！
-
-</alert>
-
-<live-demo src="/resource/livedemo/p5js/variables/animation-x/"></live-demo>
-
-↑動いていなかったら、リロード（再読み込み）してみてください。
-
-アニメーションするようにはなりましたが、**このままだと永遠に右に進んで戻ってこない**ので、
-次の頁では画面外に出たら反対側から戻ってくる条件分岐の処理を追加します。
-
-### 色をアニメーション
-
-<alert type="success">
-
-**新たに変数 `red` を定義して `0` を代入し、`draw` 関数の中で `0.1` ずつ足して `fill` に渡してみましょう！**  
-`0.1` を `1` や `0.01` に変更してみたり、初期値を `0` から `255` にしてみたり、プラスをマイナスに変えてみたりして、動きがどう変化するかみてみましょう！  
-できたら、スケッチ名： `variables-animation-fill` で保存して、コレクションに追加しましょう！
-
-</alert>
-
-<live-demo src="/resource/livedemo/p5js/variables/animation-fill/"></live-demo>
-
-↑動いていなかったら、リロード（再読み込み）してみてください。
-
-
-## システム変数
-
-p5.js には、ライブラリ側ですでに用意されている**システム変数**というものがあります。  
-これらはライブラリ側で定義＆更新されるので、`setup` `draw` の中で自由に使うことができます。
-
-<alert type="warning">
-
-**システム変数は**自分で定義する変数と違って、**代入や更新ができません！**
-
-</alert>
-
-|変数名|説明|
-|:--|:--|
-|`width`|`createCanvas` で指定したキャンバスの幅|
-|`height`|`createCanvas` で指定したキャンバスの高さ|
-|`mouseX`|キャンバス上のマウスのX座標（あとの章でやります）|
-|`mouseY`|キャンバス上のマウスのY座標（あとの章でやります）|
-|...|...|
-
-
-### キャンバスサイズに依存する書き方
-
-数値をキャンバスの中心座標として直接引数に渡していると、キャンバスサイズを変えたときに数値を再計算する必要がでてきます。
-
-```javascript[sketch.js]
-function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-
-  // 400 x 400 の中心は (200, 200)
-  // キャンバスピッタリの直径は 400
-  circle(200, 200, 400);
-}
-```
-
-`400 x 400`のときはいいけど、
-<live-demo src="/resource/livedemo/p5js/variables/system-sample-1/"></live-demo>
-
-サイズを変えると `(200, 200)` が中心じゃなくなっちゃう。
-<live-demo src="/resource/livedemo/p5js/variables/system-sample-2/"></live-demo>
-
-キャンバスの中心座標と直径をシステム変数 `width` `height` を使って書くと、`createCanvas` のサイズ指定を変更してもコードを修正する必要がなくなります。
-
-```javascript[sketch.js]
-function setup() {
-  createCanvas(500, 500);
-}
-
-function draw() {
-  background(220);
-
-  // 常にキャンバスの中心＆キャンバスの横幅いっぱいの直径
-  circle(width / 2, height / 2, width);
-}
-```
-
-`200 x 200`
-<live-demo src="/resource/livedemo/p5js/variables/system-sample-3/"></live-demo>
-
-`500 x 500`
-<live-demo src="/resource/livedemo/p5js/variables/system-sample-4/"></live-demo>
-
-<alert type="success">
-
-**`width` `height` を使って、キャンバスサイズを変更しても図形が常に同じ位置になるスケッチを書いてみましょう！**  
-できたら、スケッチ名： `variables-system` で保存して、コレクションに追加しましょう！
-
-</alert>
-
-`200 x 200`
-<live-demo src="/resource/livedemo/p5js/variables/system-1/"></live-demo>
-
-`500 x 500`
-<live-demo src="/resource/livedemo/p5js/variables/system-2/"></live-demo>

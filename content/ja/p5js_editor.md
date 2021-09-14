@@ -119,26 +119,46 @@ Googleアカウントで `p5.js Editor` にログインしよう！
 
 <alert type="warning">
 
-ユーザー名はURLの一部として公開されるので、Googleアカウントでログインしたデフォルト設定のままだと<strong>第三者がメールアドレスを推測できてしまうのを防ぐため</strong>にユーザー名を変更します。
+ユーザー名はURLの一部として公開されるので、Googleアカウントでログインしたデフォルト設定のままだと**第三者がメールアドレスを推測できてしまうのを防ぐため**にユーザー名を変更します。
 
 </alert>
 
 <alert type="warning">
 
-教員がみなさんのスケッチを確認しやすくするためでもあります。  
-ユーザー名を学籍番号に変えていないと<strong>成績採点ができないので、必ず行ってください！</strong>
+**教員がみなさんのスケッチを確認しやすくするため**でもあります。  
+ユーザー名を学籍番号に変えていないと**成績採点ができないので、必ず行ってください！**
 
 </alert>
 
+## 新規スケッチ
+
+**メニュー > File > New** をクリック でスケッチを新規作成できます。
+
+<img src="/resource/image/p5js_editor_new.png" alt="新規スケッチ"/>
+
 ## 保存
 
-`メニュー > File > Save` をクリック または、`Ctrl + S`　でスケッチを保存できます。
+**メニュー > File > Save** をクリック または、`Ctrl + S`　でスケッチを保存できます。
 
 <img src="/resource/image/p5js_editor_save.png" alt="保存"/>
 
-## 自分のスケッチ一覧
+<alert type="success">
 
-`メニュー > File > Open` をクリック または、`右上のアカウント名 > My Sketches` で保存したスケッチの一覧ページに遷移します。
+スケッチ名を `test` に変更して、**スケッチを保存してみましょう！**  
+スケッチ名の右側に `by ユーザー名` と表示されていればOK！
+
+</alert>
+
+## 複製
+
+**メニュー > File > Duplicate** をクリック でスケッチを複製できます。  
+保存されたスケッチを元に、新たに別の名前でスケッチを作成したいときに便利です。
+
+<img src="/resource/image/p5js_editor_duplicate.png" alt="複製"/>
+
+## スケッチ一覧
+
+**メニュー > File > Open** をクリック または、**右上のアカウント名 > My Sketches** で保存したスケッチの一覧ページに遷移します。
 
 <img src="/resource/image/p5js_editor_my-sketches.png" alt="スケッチ一覧"/>
 
@@ -146,12 +166,17 @@ Googleアカウントで `p5.js Editor` にログインしよう！
 
 <img src="/resource/image/p5js_editor_my-sketches-menu.png" alt="スケッチ一覧 メニュー"/>
 
-<alert>
+## コレクション一覧
 
-`Collections` はスケッチのブックマークのようなものです。  
-他の人が作ったスケッチも登録できるので、気に入ったスケッチがあったら `Collections` に追加していきましょう。
+**右上のアカウント名 > My Collections** をクリック でコレクションの一覧ページに遷移します。
 
-</alert>
+<img src="/resource/image/p5js_editor_my-collections.png" alt="コレクション一覧"/>
+
+### コレクションを作成
+
+コレクションページ右上の **Create Collection** をクリックするとコレクションを作成できます。
+
+<img src="/resource/image/p5js_editor_my-collections-create-1.png" alt="コレクション作成"/>
 
 <alert type="success">
 
@@ -160,3 +185,25 @@ Googleアカウントで `p5.js Editor` にログインしよう！
 例）９月９日の場合 → `NZU RD Programming 2021 0909`
 
 </alert>
+
+<img src="/resource/image/p5js_editor_my-collections-create-2.png" alt="コレクション作成 リネーム"/>
+
+### コレクションにスケッチを追加
+
+コレクションページ左上の **Add Sketch** をクリックするとコレクションにスケッチを追加できます。
+
+<img src="/resource/image/p5js_editor_my-collections-add-1.png" alt="コレクション追加 ボタン"/>
+
+<img src="/resource/image/p5js_editor_my-collections-add-2.png" alt="コレクション追加 スケッチを選択"/>
+
+<img src="/resource/image/p5js_editor_my-collections-add-3.png" alt="コレクション追加 スケッチ追加後"/>
+
+## 毎回やること
+
+以下工程はスケッチを作るたびに毎回行います。癖をつけておきましょう。
+
+[コレクションを作成](#コレクションを作成)  
+[新規スケッチ](#新規スケッチ)  
+[保存](#保存)  
+[スケッチ名の編集](#スケッチ名)  
+[コレクションにスケッチを追加](#コレクションにスケッチを追加)

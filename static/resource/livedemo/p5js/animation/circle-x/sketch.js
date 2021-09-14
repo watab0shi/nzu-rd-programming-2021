@@ -1,17 +1,16 @@
 let x = 200;
 let y = 200;
 let diameter = 150;
-let red = 0;
 
 function setup() {
   createCanvas(400, 400);
 }
 
 function draw() {
-  red += 0.1;
+  x += 0.2;
 
   background(220);
   noStroke();
-  fill(red, 0, 0);
+  fill(0, 205, 129);
   circle(x, y, diameter);
 }

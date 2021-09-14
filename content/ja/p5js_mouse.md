@@ -1,7 +1,7 @@
 ---
 title: マウス入力
 description: ''
-position: 6.07
+position: 6.08
 category: p5.js
 ---
 
