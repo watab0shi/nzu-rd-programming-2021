@@ -5,6 +5,8 @@ position: 6.10
 category: p5.js
 ---
 
+配列を使うと、大量の値を一つの変数で管理することができます。
+
 ## 配列の書き方
 
 ```javascript
@@ -68,7 +70,7 @@ for (let i = 0; i < arr2.length; i++) {
 
 [random() reference | p5.js](https://p5js.org/reference/#/p5/random)
 
-<alert type="warning ">
+<alert type="warning">
 
 `random` 関数は `p5.js` 側の関数のため、`setup` 関数が実行されるまで使えません！  
 `p5.js` 側の関数をつかって変数を初期化したい場合、宣言時には一時的な値を入れておいて、`setup`関数内で代入するようにしましょう！

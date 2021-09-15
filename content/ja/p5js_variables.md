@@ -27,6 +27,26 @@ let x = 123;// 変数定義 & 代入
 circle(x, 200, 100)// 変数 x を circle 関数の引数として使う
 ```
 
+```javascript[sketch.js]
+let x = 0;// 変数定義 & 代入
+
+function setup() {
+  // ここでも変数定義できるけど、この { } の中でしか使えない
+}
+
+function draw() {
+  // ここでも変数定義できるけど、この { } の中でしか使えない
+}
+```
+
+<alert>
+
+同じ名前の変数を定義することもできますが、コードの読みにくさやバグの原因になったりするので**変数名はなるべく被らない名前をつけましょう！**
+
+[JavaScript基礎 - 関数 - 命名規則について](/js-basic_function#命名規則について)
+
+</alert>
+
 <alert type="warning">
 
 **変数に代入をせず定義のみ行なうと**、その時点では変数の中身が未定義（`undefined`）になり、**バグの原因になったりします。**  
@@ -38,19 +58,7 @@ circle(x, 200, 100)// 変数 x を circle 関数の引数として使う
 
 <alert type="success">
 
-スケッチを新規作成し、`setup` 関数より上の行に**変数 `x` `y` を定義**して、それぞれに **`200` を代入**しましょう！
-
-</alert>
-
-<alert type="success">
-
-変数 `x` `y` を `circle` 関数の **第一引数（X座標）** と **第二引数（Y座標）** に渡してみましょう！（直径は適当でOK）
-
-</alert>
-
-<alert type="success">
-
-新たに `diameter`（意味：直径） という変数を作って `150` を代入し `circle` 関数の**第三引数（直径）** に渡してみましょう！  
+**３つの変数 `x` `y` `diameter`（意味：直径） を作って それぞれに `200` `200` `150` を代入し `circle` 関数の引数に渡してみましょう！**  
 できたら、スケッチ名： `variables-circle` で保存して、コレクションに追加しましょう！
 
 </alert>
@@ -86,6 +94,7 @@ p5.js には、ライブラリ側ですでに用意されている**システム
 |:--|:--|
 |`width`|`createCanvas` で指定したキャンバスの幅|
 |`height`|`createCanvas` で指定したキャンバスの高さ|
+|`frameCount`|アニメーションのフレーム数（あとの章でやります）|
 |`mouseX`|キャンバス上のマウスのX座標（あとの章でやります）|
 |`mouseY`|キャンバス上のマウスのY座標（あとの章でやります）|
 |...|...|
@@ -158,12 +167,16 @@ function draw() {
 ### 加算
 
 ```javascript
-// 書き方
+// 書き方１
 変数名 = 変数名 + 1;// 1 を足す
+
+// 書き方２
 変数名 += 1;// ↑の省略記法
 
-// サンプル
+// サンプル１
 x = x + 1;// x に 1 を足して代入する
+
+// サンプル２
 x += 1;// ↑の省略記法
 ```
 
@@ -188,12 +201,16 @@ x++;// x に 1を足す
 ### 減算
 
 ```javascript
-// 書き方
+// 書き方１
 変数名 = 変数名 - 1;// 1 を引く
+
+// 書き方２
 変数名 -= 1;// ↑の省略記法
 
-// サンプル
+// サンプル１
 x = x - 1;// x に 1 を足して代入する
+
+// サンプル２
 x -= 1;// ↑の省略記法
 ```
 
@@ -225,6 +242,8 @@ x--;// x に 1を引く
 
 ```javascript[sketch.js]
 let x = 200;
+let y = 200;
+let diameter = 150;
 
 function setup() {
   createCanvas(400, 400);
@@ -239,8 +258,101 @@ function draw() {
   background(220);
   noStroke();
   fill(0, 205, 129);
-  circle(x, 200, 150);
+  circle(x, y, diameter);
   // ↑ ここまでグラフィック描画 ↑
 }
 ```
 
+## 画像を扱う
+
+### 画像をアップロード
+
+こちらの猫の画像（`120` x `120`）を p5.js Editor にアップロードします。
+
+<img src="/resource/assets/cat.png" alt="cat"/>
+
+画像のアップロード方法はこちらを参照。  
+[エディタの使い方 - アップロード](/p5js_editor#アップロード)
+
+絵文字の画像は  
+[📙 Emojipedia — 😃 Home of Emoji Meanings 💁👌🎍😍](https://emojipedia.org/) からDLしました。
+
+### 画像を読み込む
+
+`preload` 関数の中で `loadImage` 関数を呼ぶことで画像の読み込みができます。
+
+[loadImage() reference | p5.js](https://p5js.org/reference/#/p5/loadImage)
+
+```javascript
+let img;// 読み込んだ画像を入れる用の変数
+
+function preload() {
+  // ファイル名をシングルクォーテーション '' で囲う
+  img = loadImage('cat.png');// 読み込んだ画像を img に代入
+}
+```
+
+### 画像を表示
+
+`image` 関数を使うと、読み込んだ画像を描画することができます。
+
+第一引数に読み込んだ画像が入り、第二〜第五引数は [rect関数](/p5js_primitives#rect関数) と同じ書き方です。
+
+[image() reference | p5.js](https://p5js.org/reference/#/p5/image)
+
+```javascript
+// 書き方１
+image(読み込んだ画像, X座標, Y座標);
+
+// 書き方２
+image(読み込んだ画像, X座標, Y座標, 幅, 高さ);
+
+// サンプル１
+image(img, 0, 0);// キャンバスの左上に原寸で表示
+
+// サンプル２
+image(img, 0, 0, 400, 400);// キャンバスの左上に 400 x 400 で表示
+```
+
+<alert type="success">
+
+**`preload` `loadImage` `image` 関数を使って、画像を読み込んでキャンバスに原寸表示してみましょう！**  
+できたら、スケッチ名： `variables-image` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/variables/image/"></live-demo>
+
+### imageMode関数
+
+`imageMode` 関数を使うと、[rectmode関数](/p5js_primitives#rectmode関数) と同様に `image` の引数で渡す座標の位置指定を変更できます。
+
+```javascript
+// 書き方
+imageMode(CORNER または CENTER);
+
+// サンプル
+imageMode(CORNER);// 画像の左上指定
+imageMode(CENTER);// 画像の中心指定
+```
+
+<alert type="success">
+
+`imageMode` 関数と、`image` 関数の第四引数と第五引数を使って、**画像をキャンバスの中心に全体表示してみましょう！**  
+できたら、スケッチ名： `variables-image-mode` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/variables/image-mode/"></live-demo>
+
+
+### 複数の画像を表示
+
+<alert type="success">
+
+読み込んだ画像を入れる変数と `loadImage` `image` 関数の記述を増やして、 **複数枚の画像を読み込み/表示してみましょう！**  
+できたら、スケッチ名： `variables-image-multiple` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/variables/image-multiple/"></live-demo>

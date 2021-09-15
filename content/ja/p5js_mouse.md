@@ -19,8 +19,8 @@ if (mouseIsPressed) {
 
 <alert type="success">
 
-スケッチ名：`mouse-mouseIsPressed`  
-`mouseIsPressed` を使ってマウスが押されている時と押されていない時で背景色を変えてみよう！
+`mouseIsPressed` を使って**マウスが押されている時と押されていない時で表示される図形を変えてみよう！**  
+できたら、スケッチ名： `mouse-mouseIsPressed` で保存して、コレクションに追加しましょう！
 
 </alert>
 
@@ -36,8 +36,8 @@ circle(mouseX, mouseY, 10);
 
 <alert type="success">
 
-スケッチ名：`mouse-mouseXY`  
-`mouseX` `mouseY` を使ってマウス座標に図形を描画してみよう！
+`mouseX` `mouseY` を使って**マウス座標に図形を描画してみよう！**  
+できたら、スケッチ名： `mouse-mouseXY` で保存して、コレクションに追加しましょう！
 
 </alert>
 
@@ -45,14 +45,14 @@ circle(mouseX, mouseY, 10);
 
 <alert type="success">
 
-スケッチ名：`mouse-mouseXY-advanced`  
-`mouseX` `mouseY` を色や大きさや線幅など、座標以外の引数に入れてみよう！
+`mouseX` `mouseY` を**色や大きさや線幅など、座標以外の引数に入れてみよう！**  
+できたら、スケッチ名： `mouse-mouseXY-advanced` で保存して、コレクションに追加しましょう！
 
 </alert>
 
-<live-demo src="/resource/livedemo/p5js/mouse/mouseXY-color/"></live-demo>
+<live-demo src="/resource/livedemo/p5js/mouse/mouseXY-advanced/"></live-demo>
 
-### ヒント：値の範囲を変換する
+### 値の範囲を変換する
 
 ```javascript
 // 元の最小値/最大値を min1/max1
@@ -78,7 +78,7 @@ let yColor = map(mouseY, 100, 300, 0, 255, true);
 
 ## クリックイベント
 
-`mousePressed` 関数を定義することで、マウスがクリックされた瞬間に処理を割り当てることができます。
+`mousePressed` 関数を定義することで、**マウスが押された瞬間**に処理を割り当てることができます。
 
 ```javascript
 function mousePressed() {
@@ -88,8 +88,8 @@ function mousePressed() {
 
 <alert type="success">
 
-スケッチ名：`mouse-mousPressed`  
-`mousePressed` を使ってクリックするたびに円を大きくしてみよう！
+`mousePressed` を使って**マウスが押されるたびに円を大きくしてみよう！**  
+できたら、スケッチ名： `mouse-mousPressed` で保存して、コレクションに追加しましょう！
 
 </alert>
 
@@ -98,7 +98,7 @@ function mousePressed() {
 
 ### ダブルクリック
 
-`doubleClicked` 関数を定義することで、マウスがクリックされた瞬間に処理を割り当てることができます。
+`doubleClicked` 関数を定義することで、**マウスがダブルクリックされた瞬間**に処理を割り当てることができます。
 
 ```javascript
 function doubleClicked() {
@@ -108,24 +108,27 @@ function doubleClicked() {
 
 <alert type="success">
 
-スケッチ名：`mouse-doubleClicked`  
-`doubleClicked` を使ってダブルクリックしたときに円の大きさがリセットされるようにしてみよう！
+`doubleClicked` を使って**ダブルクリックしたときに円の大きさがリセットされるようにしてみよう！**  
+できたら、スケッチ名： `mouse-doubleClicked` で保存して、コレクションに追加しましょう！
 
 </alert>
 
 <live-demo src="/resource/livedemo/p5js/mouse/doubleClicked/"></live-demo>
 
-
-## 応用編
-
-### イージング
+## イージング
 
 ```javascript
-let easeValue = 0;
+// 書き方
+現在値 += (目標値 - 現在値) * 係数;
+```
+
+```javascript[sketch.js]
+let currentValue = 0;
+let targetValue = 1;
 
 function draw() {
-  // 現在の値と目標値の差分の 20% 分を加算
-  easeValue += (目標値 - easeValue) * 0.2;
+  // 現在値と目標値の差分の 20% 分を加算
+  currentValue += (targetValue - currentValue) * 0.2;// currentValue がゆっくり 1 に近づいていく
 }
 ```
 
@@ -133,10 +136,39 @@ function draw() {
 
 <alert type="success">
 
-スケッチ名：`mouse-easinng`  
-<strong>イージング</strong> を使ってマウス座標と円のサイズを滑らかに変化させてみよう！  
-（クリックしている間は円を大きく、通常時は小さく）
+**イージングを使って円がマウス座標にゆっくり追従するようにしてみよう！**  
+できたら、スケッチ名： `mouse-easing` で保存して、コレクションに追加しましょう！
 
 </alert>
 
 <live-demo src="/resource/livedemo/p5js/mouse/easing/"></live-demo>
+
+<alert type="success">
+
+**イージングを使ってクリックしている間は円を大きく、通常時は小さくさせてみよう！**  
+できたら、スケッチ名： `mouse-easing-size` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/mouse/easing-size/"></live-demo>
+
+
+### 応用編
+
+<alert type="success">
+
+**変数を複数作って、複数の円が異なるスピードで追従するようにしてみよう！**  
+できたら、スケッチ名： `mouse-easing-multiple` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/mouse/easing-multiple/"></live-demo>
+
+<alert type="success">
+
+**`mousePressed` 関数とイージングを使って、マウスを押した座標に円が移動するようにしてみよう！**  
+できたら、スケッチ名： `mouse-easing-mousePressed` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/mouse/easing-mousePressed/"></live-demo>

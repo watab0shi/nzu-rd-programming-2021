@@ -87,6 +87,16 @@ function draw() {
 }
 ```
 
+### アップロード
+
+画像や音声など、スケッチ内で使用したい素材は **Sketch Files** の右にある **▼** をクリックして出るメニューの **Upload file** からアップロードします。
+
+<img src="/resource/image/p5js_editor_files-upload.png" alt="p5.js Editor ファイル アップロード"/>
+
+「**Drop files here or click to use file browser**」のところにファイルを**ドラッグ & ドロップ**、または**クリックしてファイルを選択。**
+
+<img src="/resource/image/p5js_editor_files-upload-drop.png" alt="p5.js Editor ファイル アップロード"/>
+
 ## ログイン
 
 p5.js Editor にログインするとスケッチを保存することができます。

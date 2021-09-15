@@ -13,17 +13,17 @@ function draw() {
     x = 0;
   }
 
-  background(220);
+  background(113, 0, 0);
   noStroke();
 
   if (x < 100) {// ~ 99
-    fill(205, 129, 129);// 赤
+    fill(244, 228, 9);
   } else if (x < 200) {// 100 ~ 199
-    fill(129, 205, 129);// 緑
+    fill(238, 186, 11);
   } else if (x < 300) {// 200 ~ 299
-    fill(129, 205, 129);// 緑
+    fill(195, 111, 9);
   } else {// それ以外
-    fill(205, 205, 129);// 黄
+    fill(166, 60, 6);
   }
 
   circle(x, y, 100);

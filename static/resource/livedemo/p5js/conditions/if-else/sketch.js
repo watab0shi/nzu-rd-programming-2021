@@ -13,13 +13,13 @@ function draw() {
     x = 0;
   }
 
-  background(220);
+  background(113, 0, 0);
   noStroke();
 
   if (x < 200) {// x が左半分にいるとき
-    fill(205, 129, 129);// 赤
+    fill(244, 228, 9);
   } else {// それ以外
-    fill(0, 205, 129);// 緑
+    fill(166, 60, 6);
   }
 
   circle(x, y, 100);

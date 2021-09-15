@@ -3,9 +3,11 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(249, 239, 231);
+  stroke(193, 97, 12);
 
-  for (let x = 100; x < 400; x += 100) {
+  for (let i = 0; i < 20; i++) {
+    let x = 100 + i * 10;
     line(x, 180, x, 220);
   }
 }

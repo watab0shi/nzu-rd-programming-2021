@@ -13,8 +13,8 @@ function draw() {
     x = 0;
   }
 
-  background(220);
+  background(113, 0, 0);
   noStroke();
-  fill(0, 205, 129);
+  fill(244, 228, 9);
   circle(x, y, 100);
 }

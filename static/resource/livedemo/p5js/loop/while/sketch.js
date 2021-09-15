@@ -3,11 +3,12 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(249, 239, 231);
+  stroke(193, 97, 12);
 
   let x = 100;
-  while (x < 400) {// x が 400 より小さい間繰り返す
+  while (x < 300) {// x が 400 より小さい間繰り返す
     line(x, 180, x, 220);
-    x += 100;// x を更新
+    x += 10;// x を更新
   }
 }
