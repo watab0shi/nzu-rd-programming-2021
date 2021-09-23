@@ -273,7 +273,7 @@ function draw() {
 <alert type="success">
 
 スケッチ名：`particle-snow-object-array`  
-<strong>オブジェクトを配列化</strong>して、雪をの結晶を<strong>10個</strong>降らせてみよう！  
+<strong>オブジェクトを配列化</strong>して、雪の結晶を<strong>10個</strong>降らせてみよう！  
 
 </alert>
 
