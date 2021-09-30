@@ -172,3 +172,22 @@ function draw() {
 </alert>
 
 <live-demo src="/resource/livedemo/p5js/mouse/easing-mousePressed/"></live-demo>
+
+<alert type="success">
+
+**お絵描きアプリをつくってみよう！（その１）**  
+できたら、スケッチ名： `mouse-drawing` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/mouse/drawing/"></live-demo>
+
+<alert type="success">
+
+**お絵描きアプリをつくってみよう！（その１）**  
+できたら、スケッチ名： `mouse-drawing-line` で保存して、コレクションに追加しましょう！  
+参考：１フレーム前のマウス座標 [pmouseX reference | p5.js](https://p5js.org/reference/#/p5/pmouseX)
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/mouse/drawing-line/"></live-demo>
