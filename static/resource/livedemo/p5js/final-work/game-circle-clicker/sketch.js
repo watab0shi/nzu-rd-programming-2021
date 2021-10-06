@@ -39,13 +39,16 @@ function drawPlayingView() {
   // ↓ ここにゲームの描画などを書く
   fill(39, 205, 32);
   circle(x, y, diameter);
+  
+  let w = map(time, timeLimit, 0, 0, width);
+  rect(0, 0, w, 5);
   // ↑ ここにゲームの描画などを書く
   
   fill(255);
   textAlign(LEFT);
   textSize(vmin * 0.03);
-  text('TIME : ' + floor(time), 5, 15);
-  text('SCORE : ' + score, 5, 35);
+  text('TIME : ' + floor(time), 5, 20);
+  text('SCORE : ' + score, 5, 40);
 }
 
 // タイムアップ
@@ -82,7 +85,7 @@ function mousePressed() {
   if (isPlaying) {
     // ゲーム中のクリック
     let d = dist(mouseX, mouseY, x, y);
-    if (d < diameter) {
+    if (d < diameter / 2) {
       x = random(width);
       y = random(height);
       score += 10;
