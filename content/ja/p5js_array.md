@@ -12,13 +12,13 @@ category: p5.js
 ```javascript
 // 書き方
 let 変数名 = [];// 空の配列を作成
-let 変数名 = [データ1, データ2, データ3];// 配列作成と同時にデータを格納
+let 変数名 = [データ１, データ２, データ３];// 配列作成と同時にデータを格納
 変数名[インデックス（何番目）];// インデックス番目のデータを取り出す（0始まりなので先頭は[0]）
 変数名.push(データ);// 配列の末尾にデータを追加
 変数名.length;// 配列の長さ（要素数）を取得
 
 // サンプル
-let arr1 = [123, 0.75, 2];// 初期化代入
+let arr1 = [123, 0.75, 2];// 初期化代入（３つの値を配列に入れる）
 console.log(arr1[0]);// 123
 console.log(arr1[1]);// 0.75
 console.log(arr1[2]);// 2
@@ -41,7 +41,16 @@ for (let i = 0; i < arr2.length; i++) {
 |:--|:--|:--|
 |`123`|`0.75`|`2`|
 
+<alert type="success">
 
+**配列とfor文を使ってランダムな大きさの図形を描いてみましょう！**  
+できたら、スケッチ名： `array-for` で保存して、コレクションに追加しましょう！
+
+</alert>
+
+<live-demo src="/resource/livedemo/p5js/array/array-for/"></live-demo>
+
+<!--
 ## グラフを描く
 
 <alert type="success">
@@ -53,7 +62,9 @@ for (let i = 0; i < arr2.length; i++) {
 </alert>
 
 <live-demo src="/resource/livedemo/p5js/array/array-graph/"></live-demo>
+-->
 
+<!-- 
 <alert type="success">
 
 スケッチ名：`array-graph-advanced`  
@@ -63,7 +74,9 @@ for (let i = 0; i < arr2.length; i++) {
 </alert>
 
 <live-demo src="/resource/livedemo/p5js/array/array-graph-advanced/"></live-demo>
+-->
 
+<!--
 ### ランダム
 
 `random` 関数で任意の範囲内のランダムな数値を取得することができます。
@@ -96,6 +109,7 @@ function setup() {
 </alert>
 
 <live-demo src="/resource/livedemo/p5js/array/array-graph-random/"></live-demo>
+-->
 
 ## 二重配列
 
@@ -142,12 +156,69 @@ for (let y = 0; y < arr2.length; y++) {
 
 <alert type="success">
 
-スケッチ名：`array-double`  
-`5 x 5` のランダムな値を入れた二重配列を作って、配列の値を直径とする円をグリッド上に描画してみよう！
+**`5 x 5` のランダムな値を入れた二重配列を作って、配列の値を直径とする円をグリッド上に描画してましょう！**  
+できたら、スケッチ名： `array-for-double` で保存して、コレクションに追加しましょう！
 
 </alert>
 
-<live-demo src="/resource/livedemo/p5js/array/array-double/"></live-demo>
+<live-demo src="/resource/livedemo/p5js/array/array-for-double/"></live-demo>
+
+## 画像のピクセル色を参照する
+
+`loadPixels` 関数を使うことで、画像のピクセルの色情報をシステム変数 `pixels` に読み出すことができます。
+画像の変数 `img` で `img.loadPixels` 関数を使うことで、画像のピクセルの色情報をシステム変数 `img.pixels` に読み出すことができます。
+
+[loadPixels() reference | p5.js](https://p5js.org/reference/#/p5/loadPixels)
+
+```javascript
+let img;
+let num = 32;
+
+function preload() {
+  img = loadImage('cat.png');
+}
+
+function setup() {
+  pixelDensity(1);
+  createCanvas(400, 400);
+
+  img.resize(num, num);// 画像が大きいと負荷がかかるので小さめにリサイズしておく
+  img.loadPixels();// img.pixels にピクセルデータが格納される
+
+  // img.pixels には [R0,G0,B0,A0, R1,G1,B1,A1, ...] の順に
+  // ひと続きの配列の中に画像の全てのピクセルデータが入っています
+  console.log(img.pixels.length);// -> 画像幅 x 画像高さ x 4
+}
+
+function draw() {
+  background(220);
+  for (let y = 0; y < num; y++) {
+    for (let x = 0; x < num; x++) {
+      let index = ((y * num) + x) * 4;// 配列の要素番号
+      let R = img.pixels[index + 0];
+      let G = img.pixels[index + 1];
+      let B = img.pixels[index + 2];
+      let A = img.pixels[index + 3];
+      // fill or stroke
+      // 図形
+    }
+  }
+}
+```
+
+
+高解像度ディスプレイの場合、p5.jsが自動的に画像サイズを大きくして高解像度対応する仕様になっているので、`pixels`の参照がずれる場合があります。
+[pixelDensity() reference | p5.js](https://p5js.org/reference/#/p5/pixelDensity)
+
+```javascript
+function setup() {
+  // 高解像度ディスプレイでもピクセル比 1x1 を保つ
+  pixelDensity(1);
+  createCanvas(400, 400);
+}
+```
+
+<live-demo src="/resource/livedemo/p5js/array/array-image-pixel/"></live-demo>
 
 ## 大量の円を動かす
 
