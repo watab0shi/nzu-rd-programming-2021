@@ -166,6 +166,16 @@ Googleアカウントで `p5.js Editor` にログインしよう！
 
 <img src="/resource/image/p5js_editor_duplicate.png" alt="複製"/>
 
+## シェア
+
+**メニュー > File > Share** をクリック でスケッチを共有できます。
+
+<img src="/resource/image/p5js_editor_share.png" alt="共有"/>
+
+スケッチURLを共有するときは、**Edit** のURLをコピーしてください。
+
+<img src="/resource/image/p5js_editor_share-edit.png" alt="エディタURLを共有"/>
+
 ## スケッチ一覧
 
 **メニュー > File > Open** をクリック または、**右上のアカウント名 > My Sketches** で保存したスケッチの一覧ページに遷移します。
