@@ -27,9 +27,9 @@ let arr2 = [];// 空の配列を作成
 arr2.push(123);// 配列.push() でデータを追加
 arr2.push(0.75);
 arr2.push(2);
-console.log(arr1[0]);// 123
-console.log(arr1[1]);// 0.75
-console.log(arr1[2]);// 2
+console.log(arr2[0]);// 123
+console.log(arr2[1]);// 0.75
+console.log(arr2[2]);// 2
 
 // for文で配列を回す
 for (let i = 0; i < arr2.length; i++) {
@@ -149,7 +149,7 @@ for (let y = 0; y < NUM; y++) {
 
 for (let y = 0; y < arr2.length; y++) {
   for (let x = 0; x < arr2[y].length; x++) {// arr2[y] で一行分の配列を取得
-    console.log(y, x, arr[y][x]);
+    console.log(y, x, arr2[y][x]);
   }
 }
 ```
